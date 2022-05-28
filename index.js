@@ -67,3 +67,8 @@ const createManager = () => {
         console.log(manager);
     })
 }
+
+createManager()
+    .then(teamArray => {
+        return htmlTemplate(teamArray);
+    });

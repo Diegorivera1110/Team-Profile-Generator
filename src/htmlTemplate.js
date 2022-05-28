@@ -1,35 +1,4 @@
-const pageLayout = function (employeeCards) {
-  return `
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- bootstrap link -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Team Page</title>
-</head>
-<body>
-    <header>
-        <h1>My Team</h1>
-        </header>
 
-        <main class="container">
-            <div>
-                ${employeeCards}
-            </div>
-            </main>
-
-
-
-<!-- bootstrap JS link -->  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" />
-</body>
-</html>
-    `;
-};
 
 // this adds the Manager card to the html page layout above
 const addManager = function (manager) {
@@ -88,7 +57,9 @@ const addIntern = function (intern) {
     `;
 };
 
-const htmlTemplate = (data) => {
+
+htmlTemplate = (data) => {
+    // array for html elements
   cardsArray = [];
 
   for (let i = 0; i < data.length; i++) {
@@ -106,7 +77,7 @@ const htmlTemplate = (data) => {
     }
     if (role === "Intern") {
       const internFile = addIntern(employee);
-      cardsArray.push(addIntern);
+      cardsArray.push(internFile);
     }
   }
 
@@ -115,5 +86,40 @@ const htmlTemplate = (data) => {
   const generateProfile = pageLayout(employeeArray);
   return generateProfile;
 };
+
+
+const pageLayout = function (employeeCards) {
+    return `
+      <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- bootstrap link -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="style.css" />
+      <title>Team Page</title>
+  </head>
+  <body>
+      <header>
+          <h1>My Team</h1>
+          </header>
+  
+          <main class="container">
+              <div>
+                  ${employeeCards}
+              </div>
+              </main>
+  
+  
+  
+  <!-- bootstrap JS link -->  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" />
+  </body>
+  </html>
+      `;
+  };
+
 
 module.exports = htmlTemplate;

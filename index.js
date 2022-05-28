@@ -19,7 +19,7 @@ const createManager = () => {
         {
             type: 'input',
             name: 'name',
-            message: "Name of the Team's Manager?",
+            message: "Name of the Team's Manager? (Required)",
             validate: nameInput => {
                 if (nameInput) {
                     return true;
@@ -32,7 +32,7 @@ const createManager = () => {
         {
             type: 'input',
             name: 'id',
-            message: "What is the Manager's ID #?",
+            message: "What is the Manager's ID #? (Required)",
             validate: idInput => {
                 if (isNaN(idInput)) {
                     console.log("Please enter the Manager ID #.");
@@ -45,7 +45,7 @@ const createManager = () => {
         {
             type: 'input',
             name: 'email',
-            message: "What is the Manager's email?",
+            message: "What is the Manager's email? (Required)",
             validate: emailInput => {
                 if (emailInput) {
                     return true;
@@ -58,7 +58,7 @@ const createManager = () => {
         {
             type: "input",
             name: 'officeNumber',
-            message: "Please enter the Manager's office number.",
+            message: "Please enter the Manager's office number. (Required)",
             validate: officeInput => {
                 if (isNaN(officeInput)) {
                     console.log("Please enter the Manager's offfice number.");
@@ -92,7 +92,7 @@ const createEmployee = () => {
         {
             type: 'input',
             name: 'name',
-            message: "Please enter Employee's name.",
+            message: "Please enter Employee's name. (Required)",
             validate: nameInput => {
                 if (nameInput) {
                     return true;
@@ -105,7 +105,7 @@ const createEmployee = () => {
         {
             type: 'input',
             name: 'id',
-            message: "What is the Employee's ID #?",
+            message: "What is the Employee's ID #? (Required)",
             validate: idInput => {
                 if (isNaN(idInput)) {
                     console.log("Please enter the Employee ID #.");
@@ -118,7 +118,7 @@ const createEmployee = () => {
         {
             type: 'input',
             name: 'email',
-            message: "What is the Employee's email?",
+            message: "What is the Employee's email? (Required)",
             validate: emailInput => {
                 if (emailInput) {
                     return true;
@@ -127,12 +127,62 @@ const createEmployee = () => {
                 }
             }
         },
-        
-
+        {
+            type: 'input',
+            name: 'github',
+            message: "Enter the Engineer's GitHub Username.",
+            when: ({ role }) => Engineer,
+            validate: githubInput => {
+                if (githubInput) {
+                    return true;
+                } else {
+                    console.log("Please enter a GitHub Username.")
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: "Enter the School of the Intern",
+            when: ({ role }) => Intern,
+            validate: schoolInput => {
+                if (schoolInput) {
+                    return true;
+                } else {
+                    console.log("Please enter the Intern's School.")
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'confirm',
+            name: 'employeeConfirmation',
+            message: 'Would you like to add another Employee?',
+            default: false
+        }
     ])
-}
+};
+
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log("Your team profile has been successfully generated.")
+        }
+    })
+};
 
 createManager()
+    .then(createEmployee)
     .then(teamArray => {
         return htmlGenerate(teamArray);
+    })
+    .then(fileHTML => {
+        return writeFile(fileHTML);
+    })
+    .catch(err => {
+        console.log(err);
     });

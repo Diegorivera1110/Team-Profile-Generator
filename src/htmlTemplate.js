@@ -1,5 +1,4 @@
 
-
 // this adds the Manager card to the html page layout above
 const addManager = function (manager) {
   return `
@@ -58,7 +57,7 @@ const addIntern = function (intern) {
 };
 
 
-htmlTemplate = (data) => {
+const htmlGenerate = (data) => {
     // array for html elements
   cardsArray = [];
 
@@ -89,37 +88,39 @@ htmlTemplate = (data) => {
 
 
 const pageLayout = function (employeeCards) {
-    return `
-      <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- bootstrap link -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" />
-      <link rel="stylesheet" href="style.css" />
-      <title>Team Page</title>
-  </head>
-  <body>
-      <header>
-          <h1>My Team</h1>
-          </header>
-  
-          <main class="container">
-              <div>
-                  ${employeeCards}
-              </div>
-              </main>
-  
-  
-  
-  <!-- bootstrap JS link -->  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" />
-  </body>
-  </html>
-      `;
-  };
+  return `
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Team Page</title>
+</head>
+<body>
+    <header>
+        <h1>My Team</h1>
+        </header>
+
+        <main class="container">
+            <div>
+                ${employeeCards}
+            </div>
+            </main>
 
 
-module.exports = htmlTemplate;
+
+<!-- bootstrap JS link -->  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" />
+</body>
+</html>
+    `;
+};
+
+
+
+
+module.exports = htmlGenerate;

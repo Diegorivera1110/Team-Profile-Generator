@@ -6,7 +6,7 @@ const addManager = function (manager) {
         <div class="card" style="width: 18rem;">
             <div class="card-header">
                 <h3>${manager.name}</h3>
-                <h4><i class="bi bi-cup"></i>Manager</h4>
+                <h4><i class="fa-regular fa-starship-freighter"></i>  Manager</h4>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${manager.id}</p>
@@ -25,7 +25,7 @@ const addEngineer = function (engineer) {
     <div class="card" style="width: 18rem;">
         <div class="card-header">
             <h3>${engineer.name}</h3>
-            <i class="bi bi-earbuds"></i><h4>Engineer</h4>
+            <h4><i class="fa-regular fa-starfighter"></i>  Engineer</h4>
         </div>
         <div class="card-body">
             <p class="id">ID: ${engineer.id}</p>
@@ -44,7 +44,7 @@ const addIntern = function (intern) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${intern.name}</h3>
-                <i class="bi bi-mortarboard-fill"></i><h4>Intern</h4>
+                <h4><i class="fa-regular fa-robot-astromech"></i>  Intern</h4>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${intern.id}</p>
@@ -57,7 +57,7 @@ const addIntern = function (intern) {
 }
 
 
- htmlGenerate = (data) => {
+const htmlGenerate = (data) => {
     // array for html elements
   teamArray = [];
 
@@ -67,16 +67,16 @@ const addIntern = function (intern) {
 
     if (role === "Manager") {
       const managerFile = addManager(employee);
-      cardsArray.push(managerFile);
+      teamArray.push(managerFile);
     }
 
     if (role === "Engineer") {
       const engineerFile = addEngineer(employee);
-      cardsArray.push(engineerFile);
+        teamArray.push(engineerFile);
     }
     if (role === "Intern") {
       const internFile = addIntern(employee);
-      cardsArray.push(internFile);
+      teamArray.push(internFile);
     }
   }
 
@@ -106,7 +106,7 @@ const pageLayout = function (cardsArray) {
         </header>
 
         <main class="container">
-            <div>
+            <div class="d-flex justify-content-around">
                 ${cardsArray}
             </div>
             </main>
@@ -114,6 +114,7 @@ const pageLayout = function (cardsArray) {
 
 
 <!-- bootstrap JS link -->  
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" />
 </body>
 </html>

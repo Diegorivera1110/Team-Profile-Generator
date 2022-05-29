@@ -1,0 +1,10 @@
+header {
+    margin: 50px;
+    text-align: center;
+}
+header h1 {
+    padding: 30px;
+font-size: 70px;
+background-color: coral;
+}
+

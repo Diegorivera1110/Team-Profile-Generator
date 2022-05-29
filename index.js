@@ -8,6 +8,7 @@ const Manager = require("./lib/Manager");
 // const { off } = require('process');
 
 const fs = require("fs");
+const path = require("path");
 const inquirer = require("inquirer");
 
 const teamArray = [];
@@ -171,7 +172,7 @@ const createEmployee = () => {
       },
     ])
     .then((employeeInput) => {
-      let { name, id, email, role, officeNumber, school, github } =
+      let { name, id, email, role, school, github, employeeConfirmation } =
         employeeInput;
       let employee;
       
@@ -209,12 +210,12 @@ const writeFile = (data) => {
 
 createManager()
   .then(createEmployee)
-  .then((teamArray) => {
+  .then(teamArray => {
     return htmlGenerate(teamArray);
   })
-  .then((fileHTML) => {
-    return writeFile(fileHTML);
+  .then(pageHTML => {
+    return writeFile(pageHTML);
   })
-  .catch((err) => {
+  .catch(err => {
     console.log(err);
   });

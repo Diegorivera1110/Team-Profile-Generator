@@ -57,7 +57,7 @@ const addIntern = function (intern) {
 }
 
 
-htmlGenerate = (data) => {
+ htmlGenerate = (data) => {
     // array for html elements
   teamArray = [];
 
@@ -120,8 +120,8 @@ const pageLayout = function (cardsArray) {
     `;
 };
 
-
-
-
 module.exports = htmlGenerate;
+
+
+
  

@@ -2,9 +2,14 @@ header {
     margin: 50px;
     text-align: center;
 }
+
 header h1 {
     padding: 30px;
-font-size: 70px;
-background-color: coral;
+    font-size: 70px;
+    font-weight: bold;
+    background-color: coral;
 }
 
+.card-header {
+    background-color: peachpuff;
+}

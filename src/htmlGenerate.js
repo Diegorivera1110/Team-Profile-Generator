@@ -3,10 +3,11 @@
 const addManager = function (manager) {
   return `
     <div class="">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 24rem;">
             <div class="card-header">
                 <h3>${manager.name}</h3>
-                <h4><i class="fa-regular fa-starship-freighter"></i>  Manager</h4>
+
+                <h4>Manager</h4>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${manager.id}</p>
@@ -22,10 +23,11 @@ const addManager = function (manager) {
 const addEngineer = function (engineer) {
   return `
     <div class="">
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 24rem;">
         <div class="card-header">
             <h3>${engineer.name}</h3>
-            <h4><i class="fa-regular fa-starfighter"></i>  Engineer</h4>
+            
+            <h4>Engineer</h4>
         </div>
         <div class="card-body">
             <p class="id">ID: ${engineer.id}</p>
@@ -40,11 +42,12 @@ const addEngineer = function (engineer) {
 // this adds the Intern card to the html page layout above
 const addIntern = function (intern) {
   return `
-    <div class="col-4 mt-4">
-        <div class="card h-100">
+    <div class="">
+        <div class="card" style="width: 24rem;">
             <div class="card-header">
                 <h3>${intern.name}</h3>
-                <h4><i class="fa-regular fa-robot-astromech"></i>  Intern</h4>
+
+                <h4>Intern</h4>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${intern.id}</p>

@@ -47,10 +47,11 @@ const createManager = () => {
             name: 'email',
             message: "What is the Manager's email? (Required)",
             validate: emailInput => {
-                if (emailInput) {
+                valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput)
+                if (valid) {
                     return true;
                 } else {
-                    console.log("Please enter the Manager's email.");
+                    console.log('Please enter a vlaid Email address.');
                     return false;
                 }
             }
@@ -120,10 +121,12 @@ const createEmployee = () => {
             name: 'email',
             message: "What is the Employee's email? (Required)",
             validate: emailInput => {
-                if (emailInput) {
+                valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput)
+                if (valid) {
                     return true;
                 } else {
-                    console.log("Please enter the Employee's email.")
+                    console.log('Please enter a vlaid Email address.');
+                    return false;
                 }
             }
         },

@@ -16,7 +16,7 @@ const addManager = function (manager) {
         </div>
     </div>
     `;
-};
+}
 
 // this adds the Engineer card to the html page layout above
 const addEngineer = function (engineer) {
@@ -35,7 +35,7 @@ const addEngineer = function (engineer) {
     </div>
 </div>
     `;
-};
+}
 
 // this adds the Intern card to the html page layout above
 const addIntern = function (intern) {
@@ -54,12 +54,12 @@ const addIntern = function (intern) {
     </div>
 </div>
     `;
-};
+}
 
 
-const htmlGenerate = (data) => {
+htmlGenerate = (data) => {
     // array for html elements
-  cardsArray = [];
+  teamArray = [];
 
   for (let i = 0; i < data.length; i++) {
     const employee = data[i];
@@ -80,14 +80,14 @@ const htmlGenerate = (data) => {
     }
   }
 
-  const employeeArray = cardsArray.join('')
+  const cardsArray = teamArray.join('')
 
-  const generateProfile = pageLayout(employeeArray);
+  const generateProfile = pageLayout(cardsArray);
   return generateProfile;
-};
+}
 
 
-const pageLayout = function (employeeCards) {
+const pageLayout = function (cardsArray) {
   return `
     <!DOCTYPE html>
 <html lang="en">
@@ -107,7 +107,7 @@ const pageLayout = function (employeeCards) {
 
         <main class="container">
             <div>
-                ${employeeCards}
+                ${cardsArray}
             </div>
             </main>
 
@@ -124,3 +124,4 @@ const pageLayout = function (employeeCards) {
 
 
 module.exports = htmlGenerate;
+ 

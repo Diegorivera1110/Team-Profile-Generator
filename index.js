@@ -140,7 +140,7 @@ const createEmployee = () => {
         type: "input",
         name: "github",
         message: "Enter the Engineer's GitHub Username.",
-        when: ({ role }) => Engineer,
+        when: (answer) => answer.role === "Engineer",
         validate: (githubInput) => {
           if (githubInput) {
             return true;
@@ -154,7 +154,7 @@ const createEmployee = () => {
         type: "input",
         name: "school",
         message: "Enter the School of the Intern",
-        when: ({ role }) => Intern,
+        when: (answer) => answer.role === "Intern",
         validate: (schoolInput) => {
           if (schoolInput) {
             return true;

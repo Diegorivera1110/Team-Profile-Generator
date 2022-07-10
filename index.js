@@ -8,7 +8,7 @@ const Manager = require("./lib/Manager");
 // const { off } = require('process');
 
 const fs = require("fs");
-const path = require("path");
+// const path = require("path");
 const inquirer = require("inquirer");
 
 const teamArray = [];

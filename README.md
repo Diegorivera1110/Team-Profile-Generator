@@ -3,6 +3,9 @@
   ## Description
   This program was built to build a team profile for a software engineering team with three classes: Manager, Engineer, and Intern. This program is used on the command line using node.js and inquirer.
 
+  ## Screenshot
+  ![screenshot](./assets/images/Screenshot%202022-09-06%20202546.png)
+
   ## Table of Contents
   - [Installation](#installation)
   - [Usage](#usage)
